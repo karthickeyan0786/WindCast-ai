@@ -10,7 +10,7 @@
 # horizontal scaling trivial: `docker run` the same image N times behind
 # a load balancer.
 
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 WORKDIR /app
 
@@ -23,9 +23,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY src/ ./src/
 COPY models/ ./models/
 COPY api/ ./api/
+COPY data/ ./data/
 
 EXPOSE 8000
 
 # --host 0.0.0.0 is required so the server is reachable from OUTSIDE the
 # container, not just from localhost inside it.
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
