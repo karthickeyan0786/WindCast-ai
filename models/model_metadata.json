@@ -1,0 +1,81 @@
+{
+  "best_model": "random_forest",
+  "feature_columns": [
+    "wind_speed",
+    "wind_direction",
+    "pressure",
+    "temperature",
+    "hour",
+    "day",
+    "month",
+    "wind_speed_cubed"
+  ],
+  "target": "power_kw",
+  "test_metrics": {
+    "MAE": 6.086705332110672,
+    "RMSE": 13.141971099703673,
+    "R2": 0.9997661703346435
+  },
+  "comparison_table": [
+    {
+      "Model": "random_forest",
+      "cv_mae_mean": 6.489978025817363,
+      "cv_mae_std": 2.664135863565335,
+      "MAE": 6.086705332110672,
+      "RMSE": 13.141971099703673,
+      "R2": 0.9997661703346435
+    },
+    {
+      "Model": "xgboost",
+      "cv_mae_mean": 9.068199515586139,
+      "cv_mae_std": 3.552077610535506,
+      "MAE": 13.664276498082817,
+      "RMSE": 18.583741123610636,
+      "R2": 0.9995324318861079
+    },
+    {
+      "Model": "linear_regression",
+      "cv_mae_mean": 164.08098935945534,
+      "cv_mae_std": 18.24592308470966,
+      "MAE": 151.1868648177245,
+      "RMSE": 202.6797337559287,
+      "R2": 0.9443840650135014
+    }
+  ],
+  "feature_importance": [
+    {
+      "feature": "wind_speed_cubed",
+      "importance": 0.5010988545557188
+    },
+    {
+      "feature": "wind_speed",
+      "importance": 0.4986054114911838
+    },
+    {
+      "feature": "temperature",
+      "importance": 0.00022388127982395458
+    },
+    {
+      "feature": "pressure",
+      "importance": 4.921330308953908e-05
+    },
+    {
+      "feature": "month",
+      "importance": 1.1152758358893624e-05
+    },
+    {
+      "feature": "wind_direction",
+      "importance": 5.627571940133985e-06
+    },
+    {
+      "feature": "day",
+      "importance": 3.092868550340202e-06
+    },
+    {
+      "feature": "hour",
+      "importance": 2.7661713345217235e-06
+    }
+  ],
+  "train_rows": 7008,
+  "test_rows": 1752
+}
